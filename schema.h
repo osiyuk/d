@@ -1,10 +1,9 @@
-#include <stdint.h>
-
-/* Start small by putting a lot of limitations:
+/*
+ * Start small by putting a lot of limitations:
  * support only two operations
  * reside in memory
  * support a single, hard-coded table
- 
+
 CREATE TABLE users (
   id INT,
   username VARCHAR(32),
@@ -15,13 +14,17 @@ CREATE TABLE users (
  * multiple data types and multiple text sizes.
  */
 
+#include <stdint.h>
+typedef uint32_t u32;
+typedef uint8_t u8;
+
 enum {
   USERNAME_SIZE = 32,
   EMAIL_SIZE = 255,
 };
 
 typedef struct {
-  uint32_t id;
+  u32 id;
   char username[USERNAME_SIZE + 1];
   char email[EMAIL_SIZE + 1];
 } table_row_t;
@@ -32,7 +35,7 @@ enum {
 };
 
 typedef struct {
-  uint8_t type;
+  u8 type;
   table_row_t * row;
 } statement_t;
 
