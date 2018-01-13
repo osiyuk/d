@@ -1,7 +1,7 @@
 /*
  * Start small by putting a lot of limitations:
+ - reside in memory
  * support only two operations
- * reside in memory
  * support a single, hard-coded table
 
 CREATE TABLE users (
@@ -15,8 +15,8 @@ CREATE TABLE users (
  */
 
 #include <stdint.h>
-typedef uint32_t u32;
 typedef uint8_t u8;
+typedef uint32_t u32;
 
 enum {
   USERNAME_SIZE = 32,
